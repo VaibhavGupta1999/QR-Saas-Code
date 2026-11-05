@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* =========================================================================
+       1. GUEST SURFACE PALETTE ("Alabaster Roastery" — Light Mode)
+       ========================================================================= */
+    --surface-canvas: #F9F6F0;
+    --surface-card: #FFFFFF;
+    --surface-subtle: #F2ECE1;
+    --ink-primary: #18120F;
+    --ink-secondary: #5C5148;
+    --ink-muted: #7A6E64;
+    --border-hairline: #E6DFD5;
+    --border-strong: #D4C8B8;
+
+    /* =========================================================================
+       2. OPERATIONS SURFACE PALETTE ("Obsidian Control" — Dark Mode)
+       ========================================================================= */
+    --ops-canvas: #0F0C0A;
+    --ops-surface-1: #171210;
+    --ops-surface-2: #211A16;
+    --ops-ink-primary: #F9F6F0;
+    --ops-ink-secondary: #B5A89D;
+    --ops-ink-muted: #8A7C70;
+    --ops-border: #2A221E;
+
+    /* =========================================================================
+       3. BRAND & SEMANTIC ACCENTS (Shared DNA)
+       ========================================================================= */
+    --accent-copper: #B86B35;
+    --accent-copper-hover: #A35B28;
+    --accent-champagne: #D7B18A;
+    --status-emerald: #2B7A4B;
+    --status-amber: #D97706;
+    --status-crimson: #C93B3B;
+
+    /* =========================================================================
+       4. COMPATIBILITY ALIASES
+       ========================================================================= */
+    --ivory-bg: #F9F6F0;
+    --espresso: #18120F;
+    --coffee-brown: #32211A;
+    --copper: #B86B35;
+    --copper-hover: #A35B28;
+    --copper-glow: rgba(184, 107, 53, 0.18);
+    --caramel: #D7B18A;
+    --text-secondary: #5C5148;
+    --border-subtle: #E6DFD5;
+    --white: #FFFFFF;
+    --success-green: #2B7A4B;
+    --amber-warning: #D97706;
+    --danger-red: #C93B3B;
+
+    --bg-crema: #F9F6F0;
+    --bg-card: #FFFFFF;
+    --bg-card-alt: #F2ECE1;
+    --espresso-noir: #18120F;
+    --charcoal-roast: #32211A;
+    --charcoal-border: #4A352C;
+    --copper-accent: #B86B35;
+    --caramel-gold: #D7B18A;
+    --crema-border: #E6DFD5;
+    --crema-muted: #5C5148;
+    --matcha-green: #2B7A4B;
+
+    --font-editorial: var(--font-editorial, 'Playfair Display', Georgia, serif);
+    --font-sans: var(--font-sans, 'Plus Jakarta Sans', system-ui, sans-serif);
+    --font-mono: var(--font-mono, 'JetBrains Mono', monospace);
+  }
+}
+
+/* Custom font utility classes */
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smooth scrolling & tap ergonomics */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--surface-canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Refined Architectural Elevation & Shadows */
+.shadow-editorial {
+  box-shadow: 0 1px 3px rgba(24, 18, 15, 0.04), 0 1px 2px rgba(24, 18, 15, 0.02);
+}
+
+.shadow-editorial-hover {
+  box-shadow: 0 12px 24px -6px rgba(24, 18, 15, 0.08), 0 4px 8px -4px rgba(24, 18, 15, 0.04);
+}
+
+.shadow-float {
+  box-shadow: 0 20px 40px -12px rgba(24, 18, 15, 0.34);
+}
+
+/* Subtle Surface Blur Helpers */
+.glass-alabaster {
+  background: rgba(249, 246, 240, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(230, 223, 213, 0.9);
+}
+
+.glass-obsidian {
+  background: rgba(15, 12, 10, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(42, 34, 30, 0.9);
+}
+
+/* Hide scrollbar while maintaining scroll functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 107, 53, 0.28);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B86B35;
+}
+
+/* Print styles for 80mm Thermal Receipt & Luxury Table Tent Standee */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
